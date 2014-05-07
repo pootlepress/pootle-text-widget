@@ -111,6 +111,10 @@ function pootle_text_widget_styles() {
         wp_enqueue_style( 'wp-jquery-ui-dialog' );
     }
     wp_print_styles( 'editor-buttons' );
+
+    global $woo_shortcode_generator;
+    wp_register_style( 'woo-shortcode-icon', esc_url( $woo_shortcode_generator->framework_url() . 'css/shortcode-icon.css' ) );
+    wp_enqueue_style( 'woo-shortcode-icon' );
     wp_enqueue_style( 'pootle-text-widget', plugins_url( 'styles/pootle-text-widget.css', __FILE__ ), array(), $pootle_text_widget_version );
 }
 
