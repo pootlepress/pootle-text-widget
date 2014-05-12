@@ -103,7 +103,7 @@ var wpActiveEditor;
 			$( '.insert-media', $widget ).data( 'editor', $text_area.attr( 'id' ) );
 		});
 		// Event handler for widget saving button (for existing instances)
-		$( 'div.widget[id*=black-studio-tinymce] input[name=savewidget]').on( 'click', function( event ) {
+		$( 'div.widget[id*=pootle-text-widget] input[name=savewidget]').on( 'click', function( event ) {
 			var $widget = $( this ).closest( 'div.widget' )
 			var $text_area = $( 'textarea[id^=widget-pootle-text-widget]', $widget );
 			if ( tinyMCE.get( $text_area.attr( 'id' ) ) != null ) {
