@@ -83,7 +83,7 @@ class Pootle_Text_Widget extends WP_Widget {
 		<div class="editor_container">
 			<textarea class="widefat" rows="20" cols="40" id="<?php echo $this->get_field_id( 'text' ); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
 		</div>
-		<div class="editor_links"><a href="http://www.blackstudio.it/en/wordpress-plugins/black-studio-tinymce-widget/" target="_blank"><?php echo __( 'Donate', 'black-studio-tinymce-widget' ); ?></a> | <a href="http://wordpress.org/support/plugin/black-studio-tinymce-widget" target="_blank"><?php echo __( 'Support', 'black-studio-tinymce-widget' ); ?></a> | <a href="https://twitter.com/blackstudioita" target="_blank"><?php echo __( 'Follow', 'black-studio-tinymce-widget' ); ?></a></div>
+		<div class="editor_links"></div>
 <?php
 	}
 }
