@@ -18,9 +18,12 @@ add_action( 'admin_init', 'pootlepress_text_widget_admin_init' );
 function pootlepress_text_widget_admin_init() {
     global $pagenow;
     $load_editor = false;
-    if ( $pagenow == "widgets.php" || $pagenow == "customize.php" ) {
+    if ( $pagenow == "widgets.php" || $pagenow == "customize.php" ||
+        $pagenow == 'post-new.php' || $pagenow == 'post.php'
+    ) {
         $load_editor = true;
     }
+
     // Compatibility for WP Page Widget plugin
     if ( is_plugin_active('wp-page-widget/wp-page-widgets.php' ) && (
             ( in_array( $pagenow, array( 'post-new.php', 'post.php') ) ) ||
