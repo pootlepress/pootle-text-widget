@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Woocommerce Extension - Pootle Text Widget
+Plugin Name: Pootle Text Widget
 Plugin URI: http://pootlepress.com/
-Description: An extension for Woocommerce that allow you to add TinyMCE text widget
+Description: A WordPress widget that has a visual and HTML editor and WooThemes & WooCommerce shortcode buttons
 Version: 1.0.0
 Author: PootlePress
 Author URI: http://pootlepress.com/
