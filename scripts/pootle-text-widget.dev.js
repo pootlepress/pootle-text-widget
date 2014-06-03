@@ -143,5 +143,6 @@ var wpActiveEditor;
 			var $text_area = $( 'textarea[id^=widget-pootle-text-widget]' );
 			pootle_open_deferred_activate_visual_editor( $text_area.attr( 'id' ) );
 		}
+
 	});
 })( jQuery ); // end self-invoked wrapper function

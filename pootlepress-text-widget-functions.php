@@ -18,9 +18,7 @@ add_action( 'admin_init', 'pootlepress_text_widget_admin_init' );
 function pootlepress_text_widget_admin_init() {
     global $pagenow;
     $load_editor = false;
-    if ( $pagenow == "widgets.php" || $pagenow == "customize.php" ||
-        $pagenow == 'post-new.php' || $pagenow == 'post.php'
-    ) {
+    if ( $pagenow == "widgets.php" || $pagenow == "customize.php") {
         $load_editor = true;
     }
 
