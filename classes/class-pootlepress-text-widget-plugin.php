@@ -31,76 +31,83 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * - get_header()
  * - woo_nav_custom()
  */
-class Pootlepress_Text_Widget_Plugin {
-	public $token = 'pootlepress-text-widget';
-	public $version;
-	private $file;
 
-	/**
-	 * Constructor.
-	 * @param string $file The base file of the plugin.
-	 * @access public
-	 * @since  1.0.0
-	 * @return  void
-	 */
-	public function __construct ( $file ) {
-		$this->file = $file;
-		$this->load_plugin_textdomain();
-		add_action( 'init', array( &$this, 'load_localisation' ), 0 );
+if (!class_exists("Pootlepress_Text_Widget_Plugin")) {
+    class Pootlepress_Text_Widget_Plugin
+    {
+        public $token = 'pootlepress-text-widget';
+        public $version;
+        private $file;
 
-		// Run this on activation.
-		register_activation_hook( $file, array( &$this, 'activation' ) );
+        /**
+         * Constructor.
+         * @param string $file The base file of the plugin.
+         * @access public
+         * @since  1.0.0
+         * @return  void
+         */
+        public function __construct($file)
+        {
+            $this->file = $file;
+            $this->load_plugin_textdomain();
+            add_action('init', array(&$this, 'load_localisation'), 0);
 
-	} // End __construct()
+            // Run this on activation.
+            register_activation_hook($file, array(&$this, 'activation'));
 
-	/**
-	 * Load the plugin's localisation file.
-	 * @access public
-	 * @since 1.0.0
-	 * @return void
-	 */
-	public function load_localisation () {
-		load_plugin_textdomain( $this->token, false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
-	} // End load_localisation()
+        } // End __construct()
 
-	/**
-	 * Load the plugin textdomain from the main WordPress "languages" folder.
-	 * @access public
-	 * @since  1.0.0
-	 * @return  void
-	 */
-	public function load_plugin_textdomain () {
-	    $domain = $this->token;
-	    // The "plugin_locale" filter is also used in load_plugin_textdomain()
-	    $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
-	 
-	    load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
-	    load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( $this->file ) ) . '/lang/' );
-	} // End load_plugin_textdomain()
+        /**
+         * Load the plugin's localisation file.
+         * @access public
+         * @since 1.0.0
+         * @return void
+         */
+        public function load_localisation()
+        {
+            load_plugin_textdomain($this->token, false, dirname(plugin_basename($this->file)) . '/lang/');
+        } // End load_localisation()
 
-	/**
-	 * Run on activation.
-	 * @access public
-	 * @since 1.0.0
-	 * @return void
-	 */
-	public function activation () {
-		$this->register_plugin_version();
-	} // End activation()
+        /**
+         * Load the plugin textdomain from the main WordPress "languages" folder.
+         * @access public
+         * @since  1.0.0
+         * @return  void
+         */
+        public function load_plugin_textdomain()
+        {
+            $domain = $this->token;
+            // The "plugin_locale" filter is also used in load_plugin_textdomain()
+            $locale = apply_filters('plugin_locale', get_locale(), $domain);
 
-	/**
-	 * Register the plugin's version.
-	 * @access public
-	 * @since 1.0.0
-	 * @return void
-	 */
-	private function register_plugin_version () {
-		if ( $this->version != '' ) {
-			update_option( $this->token . '-version', $this->version );
-		}
-	} // End register_plugin_version()
+            load_textdomain($domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo');
+            load_plugin_textdomain($domain, FALSE, dirname(plugin_basename($this->file)) . '/lang/');
+        } // End load_plugin_textdomain()
+
+        /**
+         * Run on activation.
+         * @access public
+         * @since 1.0.0
+         * @return void
+         */
+        public function activation()
+        {
+            $this->register_plugin_version();
+        } // End activation()
+
+        /**
+         * Register the plugin's version.
+         * @access public
+         * @since 1.0.0
+         * @return void
+         */
+        private function register_plugin_version()
+        {
+            if ($this->version != '') {
+                update_option($this->token . '-version', $this->version);
+            }
+        } // End register_plugin_version()
 
 
-} // End Class
-
-
+    } // End Class
+}
